@@ -183,7 +183,7 @@ def pregunta_10():
     answer = tbl0.groupby('_c1').apply(lambda x: x.sort_values(['_c2'])).reset_index(drop=True)
     answer = answer.groupby('_c1')['_c2'].apply(list).reset_index(name='lista')
     answer['lista'] = answer['lista'].apply(lambda x: ':'.join(map(str, x)))
-    answer = answer.rename(columns={'_c1': '_c0', 'lista': '_c1'}, index={'ONE': 'one'})
+    answer = answer.rename(columns={'lista': '_c2'}, index={'ONE': 'one'})
     return answer
 
 
